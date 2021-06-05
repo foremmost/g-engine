@@ -91,8 +91,7 @@ class Utility{
 			FROM `actions`
 			WHERE `name` = ? AND `type` = 'page'
 		";
-		$id = $this->db->prepare($sql,'s',[$this->db->filter($page,'s')])->fetch_row();
-		print_r($id);
+		$id = $this->db->prepare($sql,'s',[$page])->fetch_row();
 		if(!empty($id)){
 			return $id[0];
 		}
