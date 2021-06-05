@@ -86,12 +86,13 @@ class Utility{
 
 
 	function getPageId($page){
+		//,`group_id`,`user_id`,`access`
 		$sql = "
 			SELECT `id` 
 			FROM `actions`
 			WHERE `name` = ? AND `type` = 'page'
 		";
-		$id = $this->db->prepare($sql,'s',[$page])->fetch_row();
+		$id = $this->db->prepare($sql,'s',[$this->db->filter($page,'s')])->fetch_row();
 		if(!empty($id)){
 			return $id[0];
 		}
