@@ -50,7 +50,7 @@ class Db {
 		if (!$stmt = $this->connect->prepare($sql)) {
 			$this->error['error'] = __METHOD__ . $this->connect->error;
 			$this->error['sql'] = __METHOD__ . $sql;
-			die(__METHOD__ . $this->connect->error.' -==- '.$sql);
+			die(__METHOD__ . $this->connect.$this->error);
 		}
 		try{
 			if (isset($params) && !empty($params)) {
