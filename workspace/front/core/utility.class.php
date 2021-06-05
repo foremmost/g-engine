@@ -86,7 +86,7 @@ class Utility{
 
 
 	function getPageId($page){
-		//,`group_id`,`user_id`,`access`
+		echo $page;
 		$sql = "
 			SELECT `id` 
 			FROM `actions`
