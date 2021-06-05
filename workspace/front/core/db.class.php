@@ -31,7 +31,6 @@ class Db {
 	function multi($sql){
 
 		if (!$this->connect->multi_query($sql)) {
-
 			print_r($this->connect->error);
 			print_r("Не удалось выполнить мультизапрос: (" . $this->connect-->errno . ") " . $this->connect->error);
 		}
@@ -48,7 +47,7 @@ class Db {
 		if (!$stmt = $this->connect->prepare($sql)) {
 			$this->error['error'] = __METHOD__ . $this->connect->error;
 			$this->error['sql'] = __METHOD__ . $sql;
-			die(__METHOD__ . $this->connect->error);
+			die(__METHOD__ . $this->connect->error.' -==- '.$sql);
 		}
 		try{
 			if (isset($params) && !empty($params)) {
